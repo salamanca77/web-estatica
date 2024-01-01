@@ -1,0 +1,90 @@
+<nav id="listEnlace">
+  <div>
+    <a class="selected" href="#como-aprender">Como aprender ?</a>
+    <a href="#porque-aprender-ingles">Porque aprender ingles ?</a>
+    <a href="#motivacion">Motivate !</a>
+    <a href="#cursos-de-ingles">Cursos de ingles</a>
+  </div>
+
+  <!-- <div id="marcadoMenu"></div> -->
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  nav a {
+    position: relative;
+    color: black;
+    display: block;
+    text-decoration: none;
+  }
+
+  nav div {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+  }
+
+  #marcadoMenu {
+    position: absolute;
+    /* transform: translateX(var(--top)); */
+    transform: translateX(var(--left));
+    width: var(--width);
+    height: var(--height);
+    top: 15px;
+    left: 0;
+    z-index: -10;
+    background-color: #f5f4f4;
+    border-radius: 5px;
+    transition: all 0.7s ease-in-out;
+  }
+
+  nav div a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: blueviolet;
+    width: 100%;
+    height: 4px;
+    transition: opacity 0.7s ease-in-out;
+    opacity: 0;
+  }
+  nav div a.selected::after,
+  nav div a:hover::after {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((entrada) => {
+        const id = entrada.target.getAttribute("id");
+        const menuEnlace = document.querySelector(`nav div a[href='#${id}']`);
+        if (entrada.isIntersecting) {
+          document
+            .querySelector("nav div a.selected")
+            ?.classList.remove("selected");
+          menuEnlace?.classList.add("selected");
+        }
+      });
+    },
+    { rootMargin: "-30% 0px -70% 0px" }
+  );
+
+  const enlaces = document.querySelectorAll('nav div a[href^="#"]');
+
+  enlaces.forEach((enlace) => {
+    const hash = enlace.getAttribute("href");
+    const target = document.querySelector(`${hash}`);
+    if (target) {
+      observador.observe(target);
+    }
+  });
+</script>
