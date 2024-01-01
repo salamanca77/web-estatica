@@ -1,4 +1,5 @@
 ---
+import Barra_navegacion from "../components/Barra_navegacion.astro";
 interface Props {
   title: string;
 }
@@ -17,6 +18,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Barra_navegacion />
     <main>
       <slot />
     </main>
