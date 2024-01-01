@@ -9,60 +9,55 @@ console.log(datos_tecnicos);
 <section>
   <Buscador />
   <div class="container">
-  {
-    datos_tecnicos.map((datos_tecnicos) => {
-      return (
-        <Tarjeta
-          id={datos_tecnicos.id}
-          imagen={datos_tecnicos.imagen}
-          producto={datos_tecnicos.producto}
-        />
-      );
-    })
-  }
-
+    {
+      datos_tecnicos.map((datos_tecnicos) => {
+        return (
+          <Tarjeta
+            id={datos_tecnicos.id}
+            imagen={datos_tecnicos.imagen}
+            producto={datos_tecnicos.producto}
+          />
+        );
+      })
+    }
   </div>
 </section>
 
 <style>
-  .container{
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(200px, 1fr));
-    }
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
 
-    @media (max-width:900px){
-      .container{
-            grid-template-columns: repeat(2, minmax(200px, 1fr));
-        }
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
     }
+  }
 
-    @media (max-width:700px){
-      .container{
-        width: 100%;
-            grid-template-columns: repeat(1, minmax(200px, 1fr));
-        }
+  @media (max-width: 700px) {
+    .container {
+      width: 100%;
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
+  }
 </style>
 
 <script>
-  const $figures = document.querySelectorAll('figure')
-  console.log($figures);    
-  const $input = document.querySelector('input')
-  
-  $input.addEventListener('keyup', (e)=>{
-      e.preventDefault()
-      // console.log('apretar');
-          $figures.forEach(($figure) =>{
-              
-            console.log($figure);
-            // $figure.children[0].children[1].textContent.includes(e.target.value)
-              // ? $figure.classList.remove('ocultar')
-              // : $figure.classList.add('ocultar')
-          })
-  })
+  const $figures = document.querySelectorAll("figure");
+  // console.log($figures);
+  const $input = document.querySelector("input");
 
-  
+  $input.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    $figures.forEach(($figure) => {
+      console.log($figure.children[0].textContent);
+      $figure.children[0].children[1].textContent.includes(e.target.value)
+        ? $figure.classList.remove("ocultar")
+        : $figure.classList.add("ocultar");
+    });
+  });
 </script>

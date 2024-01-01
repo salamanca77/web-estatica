@@ -5,25 +5,28 @@ const { id, imagen, producto } = Astro.props;
 <figure>
   <a href={`/tarjeta_detalle/${id}`}>
     <img src={imagen} alt="" width="50" />
-    <caption>{producto}</caption>
+    <figcaption>{producto}</figcaption>
   </a>
 </figure>
 
 <style>
-  figure{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center ;
-        /* color:rgba(0, 0, 0, 0); */
-        box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.3) ;
-        border-radius: 5%;
-        overflow: hidden;
-        padding: 20px 10px;
-        
-    }
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color:rgba(0, 0, 0, 0); */
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
+    overflow: hidden;
+    padding: 20px 10px;
+  }
 
-    figure img{
-        width: 100%;;
-    }
+  figure img {
+    width: 100%;
+  }
+
+  .ocultar {
+    display: none;
+  }
 </style>
