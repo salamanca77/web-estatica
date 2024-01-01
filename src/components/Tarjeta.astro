@@ -1,0 +1,10 @@
+---
+const { id, imagen, producto } = Astro.props;
+---
+
+<figure>
+  <a href={`/tarjeta_detalle/${id}`}>
+    <img src={imagen} alt="" width="50" />
+    <caption>{producto}</caption>
+  </a>
+</figure>

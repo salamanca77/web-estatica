@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro";
+import { datos_tecnicos } from "../../datos/datos_tecnicos";
+const { id } = Astro.params;
+const identificacion = id;
+console.log(identificacion);
+console.log(id);
+
+export const getStaticPaths = (() => {
+  return datos_tecnicos.map((datos) => ({
+    params: { id: datos.id },
+  }));
+}) satisfies GetStaticPaths;
+
+const item = datos_tecnicos.find(
+  (datos) => datos.id === parseInt(id.toString())
+);
+console.log(item);
+---
+
+<section>
+  <h3>
+    {
+      datos_tecnicos.find((datos) => datos.id === parseInt(id.toString()))
+        ?.caracteristica_uno4
+    }
+  </h3>
+  <h1>{item?.producto}</h1>
+</section>

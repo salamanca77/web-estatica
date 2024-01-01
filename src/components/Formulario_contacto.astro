@@ -1,0 +1,321 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<form class="contact-form box-shadow-1">
+  <input
+    type="text"
+    name="name"
+    placeholder="Ingresa tu nombre*"
+    title="El nombre solo aceptar letras y espacio en blanco"
+    pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="Ingresa tu correo electronico*"
+    title="Email incorrecto"
+    pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+    required
+  />
+  <textarea
+    name="comments"
+    cols="30"
+    rows="10"
+    placeholder="Escribe tu comentario*"
+    required></textarea>
+
+  <div class="contact-form-loader text-center none">
+    <img src="loader.svg" alt="Enviado...." />
+  </div>
+  <input class="btn" type="submit" value="ENVIAR MENSAJE" />
+</form>
+<article id="gracias" class="modal">
+  <div class="modal-content">
+    <article class="contact-form-response">
+      <h3>
+        Muchas gracias!
+        <br />
+         Por tu comentario.
+      </h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12,18c4,0,5-4,5-4H7C7,14,8,18,12,18z"></path>
+        <path
+          d="M12,2C6.486,2,2,6.486,2,12c0,5.514,4.486,10,10,10s10-4.486,10-10C22,6.486,17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z"
+        ></path>
+        <path
+          d="M13 12l2 .012C15.012 11.55 15.194 11 16 11s.988.55 1 1h2c0-1.206-.799-3-3-3S13 10.794 13 12zM8 11c.806 0 .988.55 1 1h2c0-1.206-.799-3-3-3s-3 1.794-3 3l2 .012C7.012 11.55 7.194 11 8 11z"
+        ></path>
+      </svg>
+    </article>
+    <style>
+      :root {
+        --first-color: #d90062;
+        --first-alpha-color: rgba(217, 0, 98, 0.75);
+        --second-color: #14192d;
+        --second-alpha-color: rgba(20, 25, 45, 0.75);
+        --second-color: #501464;
+        --third-alpha-color: rgba(80, 20, 100, 0.75);
+        --white-color: #fff;
+        --gray-light-color: #f3f3f3;
+        --gray-color: #ccc;
+        --gray-dark-color: #666;
+        --black-color: #000;
+        --link-color: #509ee3;
+        --title-color: #333;
+        --text-color: #222;
+        --white-alpha-color: rgba(255, 255, 255, 0.5);
+        --black-alpha-color: rgba(0, 0, 0, 0.75);
+        --font: "Raleway", sans-serif;
+        --max-width: 1200px;
+        --header-height: 4rem;
+      }
+      .contact-form {
+        margin: 2rem auto;
+        padding: 1rem;
+        max-width: 800px;
+      }
+
+      .contact-form > * {
+        padding: 0.5rem;
+        margin: 1rem auto;
+        display: block;
+        width: 100%;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 0.85rem;
+        font-family: var(--font);
+      }
+
+      .contact-form input {
+        border: 0;
+        border-bottom: thin solid var(--gray-dark-color);
+      }
+
+      .contact-form textarea {
+        border: thin solid var(--gray-dark-color);
+        resize: none;
+      }
+
+      .contact-form input[type="submit"] {
+        margin-top: 0;
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+      }
+
+      .contact-form input[type="submit"]:hover {
+        opacity: 0.75;
+      }
+
+      .contact-form *::placeholder {
+        color: var(--gray-dark-color);
+      }
+
+      .contact-form-response {
+        padding: 1rem;
+        width: 400px;
+        text-align: center;
+        background-color: var(--white-color);
+      }
+
+      .contact-form-response svg {
+        margin-top: 2rem;
+        width: 4rem;
+        height: 4rem;
+        fill: var(--first-color);
+      }
+
+      .modal#gracias:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .none {
+        display: none !important;
+      }
+
+      .contact-form img {
+        width: 30px;
+      }
+
+      .modal {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--black-alpha-color);
+      }
+
+      .modal-content {
+        position: relative;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .modal-close svg {
+        width: 3rem;
+        height: 3rem;
+        fill: var(--first-color);
+      }
+
+      .modal[id|="trabajo"]:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @media (min-width: 1024px) {
+        .full-lg-screen {
+          width: 100%;
+          min-height: 100vh;
+        }
+
+        .about {
+          display: grid;
+          grid-template-columns: repeat(3, 30%);
+          justify-content: space-between;
+          align-content: center;
+        }
+
+        .contact-form {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 1rem;
+        }
+        .contact-form textarea,
+        .contact-form-loader {
+          grid-column: span 2;
+        }
+        .contact-form input[type="submit"] {
+          margin-left: 0;
+        }
+        .contact-cards {
+          grid-template-columns: repeat(4, 24%);
+        }
+
+        .footer {
+          margin-bottom: 0;
+        }
+        .header {
+          position: sticky;
+          top: 0;
+          padding: 0.5rem;
+          height: calc(var(--header-height)-0.5rem);
+        }
+
+        .menu-btn {
+          display: none;
+        }
+
+        .menu {
+          position: static;
+          flex-direction: row;
+          width: auto;
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .menu a {
+          padding: 0 1rem;
+          font-size: 20px;
+        }
+
+        .menu > a:hover {
+          background-color: transparent;
+        }
+
+        .menu :last-child {
+          padding-right: 0;
+        }
+
+        .text-lg-left {
+          text-align: left;
+        }
+
+        .text-lg-center {
+          text-align: center;
+        }
+
+        .text-lg-right {
+          text-align: right;
+        }
+
+        .services > .contanier {
+          grid-template-columns: repeat(3, 30%);
+        }
+
+        .services .section-title {
+          grid-column: span 3;
+        }
+
+        .portfolio > .container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .portfolio .section-title {
+          grid-column: span 3;
+        }
+      }
+    </style>
+
+    <script>
+      ((d) => {
+        const $contactForm = d.querySelector(".contact-form");
+        const $contactLouder = d.querySelector(".contact-form-loader");
+        const $contacResponse = d.querySelector(".contact-form-response");
+
+        $contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          $contactLouder.classList.remove("none");
+          fetch("https://formsubmit.co/ajax/joliversalamanca@gmail.com", {
+            method: "POST",
+            body: new FormData(e.target),
+          })
+            .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+            .then((json) => {
+              console.log(json);
+              location.hash = "#gracias";
+              $contactForm.reset();
+            })
+            .catch((error) => {
+              console.log(error);
+              let message =
+                error.status || "Ocurrio un error vuleva a intentarlo";
+              $contacResponse.querySelector("h3").innerHTML =
+                `Error ${error.status}:${message}`;
+            })
+            .finally(() => {
+              $contactLouder.classList.add("none");
+              setInterval(() => {
+                location.hash = "#close";
+              }, 2000);
+            });
+        });
+      })(document);
+    </script>
+  </div>
+</article>
