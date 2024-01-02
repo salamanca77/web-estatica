@@ -5,6 +5,7 @@ import Tarjeta from "./Tarjeta.astro";
 ---
 
 <section id="seccion_producto">
+  <h2>Nuestros productos</h2>
   <Buscador />
   <div class="container">
     {
@@ -22,8 +23,15 @@ import Tarjeta from "./Tarjeta.astro";
 </section>
 
 <style>
-  section{
-    padding: 50px 0;
+  section {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    text-align: center;
   }
   .container {
     max-width: 1200px;
