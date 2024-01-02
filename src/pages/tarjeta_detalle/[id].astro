@@ -20,8 +20,31 @@ console.log(item);
 ---
 
 <Layout title="Detalles">
-  <!-- <section>
-    <h3></h3>
-    <h1>{item?.producto}</h1>
-  </section> -->
+  <section>
+    <img src={item.imagen} alt="" />
+    <div>
+      <p>{item.caracteristica_uno}</p>
+      <p>{item.caracteristica_uno2}</p>
+      <p>{item.caracteristica_uno3}</p>
+      <p>{item.caracteristica_uno4}</p>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 30px;
+  }
+  img {
+    width: 452px;
+    height: 452px;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
+    padding: 20px;
+  }
+</style>
