@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { datos_tecnicos } from "../../datos/datos_tecnicos";
+import Layout from "../../layouts/Layout.astro";
 const { id } = Astro.params;
 const identificacion = id;
 console.log(identificacion);
@@ -18,12 +19,9 @@ const item = datos_tecnicos.find(
 console.log(item);
 ---
 
-<section>
-  <h3>
-    {
-      datos_tecnicos.find((datos) => datos.id === parseInt(id.toString()))
-        ?.caracteristica_uno4
-    }
-  </h3>
-  <h1>{item?.producto}</h1>
-</section>
+<Layout title="Detalles">
+  <!-- <section>
+    <h3></h3>
+    <h1>{item?.producto}</h1>
+  </section> -->
+</Layout>
