@@ -1,20 +1,36 @@
 ---
 import Formulario_Contacto from "./Formulario_contacto.astro";
+import Tarjeta_contacto from "./Tarjeta_contacto.astro";
 ---
 
 <section id="seccion_contacto">
-  <h1>Contacto</h1>
-  <Formulario_Contacto />
+  <h2>Contacto</h2>
+  <div class="container">
+    <Tarjeta_contacto />
+    <Formulario_Contacto />
+  </div>
 </section>
 
 <style>
   section {
-    height: auto;
+    height: 100vh;
+  }
+  .container {
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    column-gap: 15px;
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      width: 100%;
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+  }
+  h2 {
+    text-align: center;
   }
 </style>

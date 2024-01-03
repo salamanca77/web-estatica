@@ -31,13 +31,14 @@ import { Icon } from "astro-icon/components";
   </div>
   <input class="btn" type="submit" value="ENVIAR MENSAJE" />
 </form>
+
 <article id="gracias" class="modal">
   <div class="modal-content">
     <article class="contact-form-response">
       <h3>
         Muchas gracias!
         <br />
-         Por tu comentario.
+        Por tu comentario.
       </h3>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -57,33 +58,33 @@ import { Icon } from "astro-icon/components";
     <style>
       :root {
         --first-color: #d90062;
-        --first-alpha-color: rgba(217, 0, 98, 0.75);
-        --second-color: #14192d;
-        --second-alpha-color: rgba(20, 25, 45, 0.75);
-        --second-color: #501464;
-        --third-alpha-color: rgba(80, 20, 100, 0.75);
         --white-color: #fff;
-        --gray-light-color: #f3f3f3;
-        --gray-color: #ccc;
         --gray-dark-color: #666;
-        --black-color: #000;
-        --link-color: #509ee3;
-        --title-color: #333;
-        --text-color: #222;
-        --white-alpha-color: rgba(255, 255, 255, 0.5);
         --black-alpha-color: rgba(0, 0, 0, 0.75);
         --font: "Raleway", sans-serif;
         --max-width: 1200px;
         --header-height: 4rem;
       }
-      .contact-form {
-        margin: 2rem auto;
+
+      .btn {
+        display: inline-block;
+        border-radius: 0.5rem;
+        text-decoration: none;
         padding: 1rem;
+        width: 200px;
+        font-weight: bold;
+        text-align: center;
+        color: var(--white-color);
+        background-color: var(--first-color);
+      }
+      .contact-form {
+        padding: 20px;
         max-width: 800px;
+        border-radius: 15px;
       }
 
       .contact-form > * {
-        padding: 0.5rem;
+        padding: 0.5px;
         margin: 1rem auto;
         display: block;
         width: 100%;
@@ -144,6 +145,10 @@ import { Icon } from "astro-icon/components";
 
       .contact-form img {
         width: 30px;
+      }
+
+      .box-shadow-1 {
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
       }
 
       .modal {

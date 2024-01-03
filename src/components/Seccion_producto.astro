@@ -1,7 +1,7 @@
 ---
 import { datos_tecnicos } from "../datos/datos_tecnicos";
 import Buscador from "./Buscador.astro";
-import Tarjeta from "./Tarjeta.astro";
+import Tarjeta_producto from "./Tarjeta_producto.astro";
 ---
 
 <section id="seccion_producto">
@@ -11,7 +11,7 @@ import Tarjeta from "./Tarjeta.astro";
     {
       datos_tecnicos.map((datos_tecnicos) => {
         return (
-          <Tarjeta
+          <Tarjeta_producto
             id={datos_tecnicos.id}
             imagen={datos_tecnicos.imagen}
             producto={datos_tecnicos.producto}
